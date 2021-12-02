@@ -6,15 +6,18 @@ public class Compass {
 
     private int horizontalPosition = 0;
     private int depth = 0;
+    private int aim = 0;
 
-    public Compass(int initialHorizontalPosition, int initialDepth) {
+    public Compass(int initialHorizontalPosition, int initialDepth, int initialAim) {
         this.horizontalPosition = initialHorizontalPosition;
         this.depth = initialDepth;
+        this.aim = initialAim;
     }
 
 
     public void forward(int stepNumber) {
         this.horizontalPosition += stepNumber;
+        this.depth += this.aim*stepNumber;
     }
 
     public int getHorizontalPosition() {
@@ -22,11 +25,11 @@ public class Compass {
     }
 
     public void up(int stepNumber) {
-        this.depth -= stepNumber;
+        this.aim -= stepNumber;
     }
 
     public void down(int stepNumber) {
-        this.depth += stepNumber;
+        this.aim += stepNumber;
     }
 
     public int depth() {
@@ -48,5 +51,9 @@ public class Compass {
 
     public int scalar() {
         return this.depth * this.horizontalPosition;
+    }
+
+    public int aim() {
+        return this.aim;
     }
 }

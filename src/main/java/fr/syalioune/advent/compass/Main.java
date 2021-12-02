@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         List<String> instructions = Files.readAllLines(Path.of("src/main/resources/compass-input.txt"));
-        Compass compass = new Compass(0,0);
+        Compass compass = new Compass(0,0, 0);
         compass.followInstructions(instructions);
         System.out.println(compass.scalar());
     }
